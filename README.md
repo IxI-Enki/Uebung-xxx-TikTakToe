@@ -1,7 +1,7 @@
 # Uebung-xxx  --  TikTakToe
 
 ## Idee:
-Mache ein Tik-Tak-Toe Spiel
+Programmiere ein Tik-Tak-Toe Spiel
 
 ### cs - Files hochgeladen
 
