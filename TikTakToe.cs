@@ -1,7 +1,7 @@
 ﻿/*  Tik Tak Toe  --  Jan Ritt
  *  15.10.2023
  *  - make a curser move
- *  - forbid for overwriting 
+ *  - forbid overwriting 
  *  - check for wins and remis
  */
 
@@ -16,22 +16,23 @@ namespace TikTakToe
   {
     static void Main(string[] args)
     {
-      char gameover = 'f';
-      int abort = 0;
-      int draw = 1;
-      int choices = 0;
-      string player = "X";
-      string xo1, xo2, xo3, xo4, xo5, xo6, xo7, xo8, xo9;
-      string choiceXo1, choiceXo2, choiceXo3, choiceXo4, choiceXo5, choiceXo6, choiceXo7, choiceXo8, choiceXo9;
-      xo1 = " "; xo2 = " "; xo3 = " "; xo4 = " "; xo5 = " "; xo6 = " "; xo7 = " "; xo8 = " "; xo9 = " ";
-      choiceXo1 = " "; choiceXo2 = " "; choiceXo3 = " "; choiceXo4 = " "; choiceXo5 = " "; choiceXo6 = " "; choiceXo7 = " "; choiceXo8 = " "; choiceXo9 = " ";
-      string curser = "-";
-      xo5 = curser;
-      do
+      char gameover = 'f';     //  gameover condition t/f
+      int abort = 0;           //  abort condition 0/1
+      int draw = 1;            //  draw condition 1/0
+      int choices = 0;         //  number of choices
+      string player = "X";     //  starting player
+      string xo1, xo2, xo3, xo4, xo5, xo6, xo7, xo8, xo9;                                                          //  curser fields
+      string choiceXo1, choiceXo2, choiceXo3, choiceXo4, choiceXo5, choiceXo6, choiceXo7, choiceXo8, choiceXo9;    //  chosen fields
+      xo1 = " "; xo2 = " "; xo3 = " "; xo4 = " "; xo5 = " "; xo6 = " "; xo7 = " "; xo8 = " "; xo9 = " ";                                                          //  empty fields
+      choiceXo1 = " "; choiceXo2 = " "; choiceXo3 = " "; choiceXo4 = " "; choiceXo5 = " "; choiceXo6 = " "; choiceXo7 = " "; choiceXo8 = " "; choiceXo9 = " ";    //  
+      string curser = "-";     //  curser
+      xo5 = curser;            //  curser start position
+      do    // MAIN GAIMLOOP //
       {
+        //  
         if (gameover == 'f' && abort != 1)
         {
-          // DRAW //
+          // DRAW PLAYFIELD //
           Console.Clear();
           Console.WriteLine();
           Console.WriteLine("Tik - Tak - Toe");
@@ -246,7 +247,7 @@ namespace TikTakToe
               }
               break;
 
-            ////  E ////
+            ////  E  ////
             case 'E':
               if (curser == xo1 && choiceXo1 != "X" && choiceXo1 != "O")
               {
@@ -370,7 +371,7 @@ namespace TikTakToe
                 Console.WriteLine("Ungültige Eingabe");
               }
               break;
-
+            ////  Q  ////
             case 'Q':
               abort = 1;
               gameover = 't';
@@ -384,24 +385,27 @@ namespace TikTakToe
           }
         }
         //  WIN CONDITION  //
-        if ((choiceXo1 == "X" && choiceXo2 == "X" && choiceXo3 == "X") || (choiceXo4 == "X" && choiceXo5 == "X" && choiceXo6 == "X") || 
-          (choiceXo7 == "X" && choiceXo8 == "X" && choiceXo9 == "X") || (choiceXo1 == "X" && choiceXo4 == "X" && choiceXo7 == "X") || 
-          (choiceXo2 == "X" && choiceXo5 == "X" && choiceXo8 == "X") || (choiceXo3 == "X" && choiceXo6 == "X" && choiceXo9 == "X") || 
+        //  X wins
+        if ((choiceXo1 == "X" && choiceXo2 == "X" && choiceXo3 == "X") || (choiceXo4 == "X" && choiceXo5 == "X" && choiceXo6 == "X") ||
+          (choiceXo7 == "X" && choiceXo8 == "X" && choiceXo9 == "X") || (choiceXo1 == "X" && choiceXo4 == "X" && choiceXo7 == "X") ||
+          (choiceXo2 == "X" && choiceXo5 == "X" && choiceXo8 == "X") || (choiceXo3 == "X" && choiceXo6 == "X" && choiceXo9 == "X") ||
           (choiceXo1 == "X" && choiceXo5 == "X" && choiceXo9 == "X") || (choiceXo3 == "X" && choiceXo5 == "X" && choiceXo7 == "X"))
         {
           abort = 1;
           gameover = 't';
           Console.WriteLine("Spieler X hat gewonnen!");
         }
-        else if ((choiceXo1 == "O" && choiceXo2 == "O" && choiceXo3 == "O") || (choiceXo4 == "O" && choiceXo5 == "O" && choiceXo6 == "O") || 
-          (choiceXo7 == "O" && choiceXo8 == "O" && choiceXo9 == "O") || (choiceXo1 == "O" && choiceXo4 == "O" && choiceXo7 == "O") || 
-          (choiceXo2 == "O" && choiceXo5 == "O" && choiceXo8 == "O") || (choiceXo3 == "O" && choiceXo6 == "O" && choiceXo9 == "X") || 
+        //  O wins
+        else if ((choiceXo1 == "O" && choiceXo2 == "O" && choiceXo3 == "O") || (choiceXo4 == "O" && choiceXo5 == "O" && choiceXo6 == "O") ||
+          (choiceXo7 == "O" && choiceXo8 == "O" && choiceXo9 == "O") || (choiceXo1 == "O" && choiceXo4 == "O" && choiceXo7 == "O") ||
+          (choiceXo2 == "O" && choiceXo5 == "O" && choiceXo8 == "O") || (choiceXo3 == "O" && choiceXo6 == "O" && choiceXo9 == "X") ||
           (choiceXo1 == "O" && choiceXo5 == "O" && choiceXo9 == "O") || (choiceXo3 == "O" && choiceXo5 == "O" && choiceXo7 == "O"))
         {
           abort = 1;
           gameover = 't';
           Console.WriteLine("Spieler O hat gewonnen!");
         }
+        //  all possible choices done without a winner
         else if (choices == 9)
         {
           abort = 1;
@@ -410,8 +414,8 @@ namespace TikTakToe
         }
       }
       while (gameover != 't');
-      Console.WriteLine("Ende");
-      Console.ReadLine();
+      Console.WriteLine("Ende");    //  Beenden
+      Console.ReadLine();           //
     }
   }
 }
