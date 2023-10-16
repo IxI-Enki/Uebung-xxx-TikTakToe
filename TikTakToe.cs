@@ -17,7 +17,6 @@ namespace TikTakToe
     {
       char gameover = 'f';     //  gameover condition t/f
       int abort = 0;           //  abort condition 0/1
-      int draw = 1;            //  draw condition 1/0
       int choices = 0;         //  number of choices
       string player = "X";     //  starting player
       string xo1, xo2, xo3, xo4, xo5, xo6, xo7, xo8, xo9;                                                          //  curser fields
