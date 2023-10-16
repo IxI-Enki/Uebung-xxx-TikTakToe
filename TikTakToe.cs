@@ -1,13 +1,12 @@
-﻿/*  Tik Tak Toe  --  Jan Ritt
+/*  Tik Tak Toe  --  Jan Ritt
  *  15.10.2023
  *  - make a curser move
  *  - forbid overwriting 
- *  - check for wins and ties 
+ *  - check for wins and ties
  */
+
 using System;
 using System.Text;
-using System.Threading;             //  Tik-Tak-Toe works perfektly fine without Threading
-using System.Threading.Channels;    //    this is a remnant of coded input delay 
 
 namespace TikTakToe
 {
@@ -15,38 +14,40 @@ namespace TikTakToe
   {
     static void Main(string[] args)
     {
-      char gameover = 'f';     //  gameover condition t/f
+      char gameover = 'f';     //  game over condition t/f
       int abort = 0;           //  abort condition 0/1
-      int choices = 0;         //  number of choices
+      int choices = 0;         //  number of choices (turns)
       string player = "X";     //  starting player
+      string curser = "-";     //  curser
       string xo1, xo2, xo3, xo4, xo5, xo6, xo7, xo8, xo9;                                                          //  curser fields
       string choiceXo1, choiceXo2, choiceXo3, choiceXo4, choiceXo5, choiceXo6, choiceXo7, choiceXo8, choiceXo9;    //  chosen fields
+
       xo1 = " "; xo2 = " "; xo3 = " "; xo4 = " "; xo5 = " "; xo6 = " "; xo7 = " "; xo8 = " "; xo9 = " ";                                                          //  empty fields
       choiceXo1 = " "; choiceXo2 = " "; choiceXo3 = " "; choiceXo4 = " "; choiceXo5 = " "; choiceXo6 = " "; choiceXo7 = " "; choiceXo8 = " "; choiceXo9 = " ";    //  
-      string curser = "-";     //  curser
       xo5 = curser;            //  curser start position
-      do    // MAIN GAMELOOP //
+
+      do    //  MAIN GAMELOOP  //
       {
-        //  
         if (gameover == 'f' && abort != 1)
         {
-          // DRAW PLAYFIELD //
+          //  DRAW PLAYFIELD  //
           Console.Clear();
           Console.WriteLine();
-          Console.WriteLine("Tik - Tak - Toe");
-          Console.WriteLine("---------------");
-          Console.WriteLine($"      Spieler {player}");
+          Console.WriteLine("    Tik - Tak - Toe");
+          Console.WriteLine(" ---------------------");
+          Console.WriteLine($"             Spieler {player}");
           Console.WriteLine();
-          Console.WriteLine($" {xo1}{choiceXo1}{xo1}|{xo2}{choiceXo2}{xo2}|{xo3}{choiceXo3}{xo3}");
-          Console.WriteLine(" ---+---+--- ");
-          Console.WriteLine($" {xo4}{choiceXo4}{xo4}|{xo5}{choiceXo5}{xo5}|{xo6}{choiceXo6}{xo6}");
-          Console.WriteLine(" ---+---+--- ");
-          Console.WriteLine($" {xo7}{choiceXo7}{xo7}|{xo8}{choiceXo8}{xo8}|{xo9}{choiceXo9}{xo9}");
+          Console.WriteLine($"      {xo1}{choiceXo1}{xo1}|{xo2}{choiceXo2}{xo2}|{xo3}{choiceXo3}{xo3}");
+          Console.WriteLine("      ---+---+--- ");
+          Console.WriteLine($"      {xo4}{choiceXo4}{xo4}|{xo5}{choiceXo5}{xo5}|{xo6}{choiceXo6}{xo6}");
+          Console.WriteLine("      ---+---+--- ");
+          Console.WriteLine($"      {xo7}{choiceXo7}{xo7}|{xo8}{choiceXo8}{xo8}|{xo9}{choiceXo9}{xo9}");
           Console.WriteLine();
-          Console.WriteLine("[WASD] - Zeiger bewegen");
-          Console.WriteLine("[Q]    - Quit");
-          Console.WriteLine("[E]    - Feld wählen");
-          // INPUT //
+          Console.WriteLine(" [WASD]-Zeiger bewegen");
+          Console.WriteLine(" [E]   -Feld wählen");
+          Console.WriteLine(" [Q]   -Quit");
+         
+          //  INPUT  //
           char input;
           input = Console.ReadKey().KeyChar;
           Console.Clear();
@@ -377,8 +378,8 @@ namespace TikTakToe
               break;
 
             default:
-              // Fallback code for other input
-              Console.WriteLine("Invalid input");
+              //  Fall-back code for other input
+              Console.WriteLine("Ungültige Eingabe");
               break;
           }
         }
@@ -396,7 +397,7 @@ namespace TikTakToe
         //  O wins
         else if ((choiceXo1 == "O" && choiceXo2 == "O" && choiceXo3 == "O") || (choiceXo4 == "O" && choiceXo5 == "O" && choiceXo6 == "O") ||
           (choiceXo7 == "O" && choiceXo8 == "O" && choiceXo9 == "O") || (choiceXo1 == "O" && choiceXo4 == "O" && choiceXo7 == "O") ||
-          (choiceXo2 == "O" && choiceXo5 == "O" && choiceXo8 == "O") || (choiceXo3 == "O" && choiceXo6 == "O" && choiceXo9 == "O") ||
+          (choiceXo2 == "O" && choiceXo5 == "O" && choiceXo8 == "O") || (choiceXo3 == "O" && choiceXo6 == "O" && choiceXo9 == "X") ||
           (choiceXo1 == "O" && choiceXo5 == "O" && choiceXo9 == "O") || (choiceXo3 == "O" && choiceXo5 == "O" && choiceXo7 == "O"))
         {
           abort = 1;
@@ -408,11 +409,11 @@ namespace TikTakToe
         {
           abort = 1;
           gameover = 't';
-          Console.WriteLine("Unentschieden - drücke Q um das Spiel zu Beenden.");
+          Console.WriteLine("Unentschieden - Drücke Q um das Spiel zu Beenden.");
         }
       }
       while (gameover != 't');
-      Console.WriteLine("Ende");    //  Beenden
+      Console.WriteLine("Ende");    //  end program
       Console.ReadLine();           //
     }
   }
