@@ -409,7 +409,7 @@ namespace TikTakToe
         {
           abort = 1;
           gameover = 't';
-          Console.WriteLine("Unentschieden - Drücke Q um das Spiel zu Beenden.");
+          Console.WriteLine("Unentschieden - [Enter] um das Spiel zu Beenden.");
         }
       }
       while (gameover != 't');
