@@ -6,8 +6,8 @@
  */
 using System;
 using System.Text;
-using System.Threading;
-using System.Threading.Channels;
+using System.Threading;             //  Tik-Tak-Toe works perfektly fine without Threading
+using System.Threading.Channels;    //    this is a remnant of coded input delay 
 
 namespace TikTakToe
 {
