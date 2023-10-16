@@ -2,7 +2,7 @@
  *  15.10.2023
  *  - make a curser move
  *  - forbid overwriting 
- *  - check for wins and remis
+ *  - check for wins and ties 
  */
 
 using System;
