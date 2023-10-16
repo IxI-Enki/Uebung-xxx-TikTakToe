@@ -397,7 +397,7 @@ namespace TikTakToe
         //  O wins
         else if ((choiceXo1 == "O" && choiceXo2 == "O" && choiceXo3 == "O") || (choiceXo4 == "O" && choiceXo5 == "O" && choiceXo6 == "O") ||
           (choiceXo7 == "O" && choiceXo8 == "O" && choiceXo9 == "O") || (choiceXo1 == "O" && choiceXo4 == "O" && choiceXo7 == "O") ||
-          (choiceXo2 == "O" && choiceXo5 == "O" && choiceXo8 == "O") || (choiceXo3 == "O" && choiceXo6 == "O" && choiceXo9 == "X") ||
+          (choiceXo2 == "O" && choiceXo5 == "O" && choiceXo8 == "O") || (choiceXo3 == "O" && choiceXo6 == "O" && choiceXo9 == "O") ||
           (choiceXo1 == "O" && choiceXo5 == "O" && choiceXo9 == "O") || (choiceXo3 == "O" && choiceXo5 == "O" && choiceXo7 == "O"))
         {
           abort = 1;
