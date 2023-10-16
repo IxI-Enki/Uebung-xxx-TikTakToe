@@ -27,7 +27,7 @@ namespace TikTakToe
       choiceXo1 = " "; choiceXo2 = " "; choiceXo3 = " "; choiceXo4 = " "; choiceXo5 = " "; choiceXo6 = " "; choiceXo7 = " "; choiceXo8 = " "; choiceXo9 = " ";    //  
       string curser = "-";     //  curser
       xo5 = curser;            //  curser start position
-      do    // MAIN GAIMLOOP //
+      do    // MAIN GAMELOOP //
       {
         //  
         if (gameover == 'f' && abort != 1)
